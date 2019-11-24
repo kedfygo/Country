@@ -9,6 +9,11 @@ class Resident(models.Model):
     type_of_property = models.CharField(max_length=50, verbose_name="tipo de inmueble")
     owner_name = models.CharField(max_length=100, verbose_name="nombre del propietario")
 
+    class Meta:
+        verbose_name = "Residente"
+        verbose_name_plural = "Residentes"
+        ordering = ['-lastname']
+     
     def __str__(self):
         return (self.name + ' ' + self.lastname)
 
