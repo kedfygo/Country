@@ -1,12 +1,12 @@
-{% extends 'resident/base.html' %}{%block title%}Residentes{% endblock %} {% block content%}
+{% extends 'resident/base.html' %}{%block title%}Proveedores{% endblock %}{% block content %}
 <main class="pt-4">
     <div class="container">
-        <h2 class="text-center mb-4">Administración de Residentes</h2>
+        <h2 class="text-center mb-4">Administración de Proveedores</h2>
 
         <div class="row text-center panel justify-content-center align-middle">
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="boton bg-success d-flex align-items-center justify-content-center">
-                    <a href="/add-resident/" class="text-light">
+                    <a href="nuevo_cliente.html" class="text-light">
                         <i class="material-icons">add</i>
                         <p class="m-0">Nuevo</p>
                     </a>
@@ -15,7 +15,7 @@
         </div>
         <!-- row -->
 
-        <h3 class="text-center mt-4">Lista de Residentes</h3>
+        <h3 class="text-center mt-4">Lista de Proveedores</h3>
 
         <table class="table">
             <caption>Listado Actualizado...</caption>
@@ -33,26 +33,20 @@
                 </tr>
             </thead>
             <tbody>
-                {% if residents_listed %} {% for resident in residents_listed %}
                 <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ resident.name}}</td>
-                    <td>{{ resident.lastname }}</td>
-                    <td>{{ resident.address}}</td>
-                    <td>{{ resident.email }}</td>
-                    <td>{{ resident.type_of_property}}</td>
-                    <td>{{ resident.owner_name }}</td>
+                    <td>1</td>
+                    <td>Kedfy</td>
+                    <td>González</td>
+                    <td>Macuilis 122</td>
+                    <td>kedfygo@gmail.com</td>
+                    <td>Casa</td>
+                    <td>José Sánchez</td>
                     <td>
                         <a href="#" class="btn btn-danger">Borrar</a>
                         <a href="#" class="btn btn-success">Editar</a>
                         <a href="#" class="btn btn-primary">Ver</a>
                     </td>
                 </tr>
-
-                {% endfor %} {% else %}
-                <p>No hay residentes registrados</p>
-                {% endif %}
-
 
             </tbody>
         </table>

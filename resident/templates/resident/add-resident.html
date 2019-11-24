@@ -1,0 +1,63 @@
+{% extends 'resident/base.html' %}{%block title%}Agregar Residente{% endblock %} {% block content %}
+<main class="pt-4">
+    <div class="container">
+        <h2 class="text-center mb-4">Nuevo Residente</h2>
+        <div class="row">
+            <div class="col">
+                <form class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre del Residente" required>
+
+                        <div class="invalid-feedback">
+                            <p>Este campo es obligatorio</p>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido" placeholder="Apellido del Residente" required>
+                        <div class="invalid-feedback">
+                            <p>Este campo es obligatorio</p>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Dirección</label>
+                        <input type="email" class="form-control" id="email" placeholder="Calle y Número de Casa" required>
+                        <div class="invalid-feedback">
+                            <p>Este campo es obligatorio</p>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email del Residente" required>
+                        <div class="invalid-feedback">
+                            <p>Este campo es obligatorio</p>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Tipo de Inmueble</label>
+                        <input type="email" class="form-control" id="email" placeholder="Casa, Apartamento o Baldío" required>
+                        <div class="invalid-feedback">
+                            <p>Este campo es obligatorio</p>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Nombre del Propietario:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Nombre del Propietario del Inmueble" required>
+                        <div class="invalid-feedback">
+                            <p>Este campo es obligatorio</p>
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="Agregar">Agregar Residente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
