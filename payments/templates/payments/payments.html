@@ -1,12 +1,12 @@
 {% extends 'resident/base.html' %}{%block title%}Proveedores{% endblock %}{% block content %}
 <main class="pt-4">
     <div class="container">
-        <h2 class="text-center mb-4">Administración de Proveedores</h2>
+        <h2 class="text-center mb-4">Registrar Pago</h2>
 
         <div class="row text-center panel justify-content-center align-middle">
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="boton bg-success d-flex align-items-center justify-content-center">
-                    <a href="nuevo_cliente.html" class="text-light">
+                    <a href="{% url 'add-payment' %}" class="text-light">
                         <i class="material-icons">add</i>
                         <p class="m-0">Nuevo</p>
                     </a>
@@ -15,39 +15,43 @@
         </div>
         <!-- row -->
 
-        <h3 class="text-center mt-4">Lista de Proveedores</h3>
+        <h3 class="text-center mt-4">Pagos Registrados</h3>
 
         <table class="table">
             <caption>Listado Actualizado...</caption>
 
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Dirección</th>
-                    <th scope="col">Correo Electrónico</th>
-                    <th scope="col">Tipo de Inmueble</th>
-                    <th scope="col">Nombre del Propietario</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Tipo de Pago</th>
+                    <th scope="col">Comprobante</th>
+                    <th scope="col">Fecha de Pago</th>
 
                 </tr>
             </thead>
             <tbody>
+            {% if payments_listed %} {% for payment in payments_listed %}
                 <tr>
-                    <td>1</td>
-                    <td>Kedfy</td>
-                    <td>González</td>
-                    <td>Macuilis 122</td>
-                    <td>kedfygo@gmail.com</td>
-                    <td>Casa</td>
-                    <td>José Sánchez</td>
+                    <td>{{ payment.name}}</td>
+                    <td>{{ payment.lastname}}</td>
+                    <td>{{ payment.address}}</td>
+                    <td>{{ payment.description}}</td>
+                    <td>{{ payment.amount}}</td>
+                    <td>{{ payment.type_of_payment}}</td>
+                    <td><a href="{{ payment.proof_of_payment.url }}" class="">Ver recibo</a></td>
+                    <td> {{ payment.date_of_payment }}</td>
                     <td>
                         <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
                         <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
                         <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
                     </td>
                 </tr>
-
+            {% endfor %}
+            {% endif %}
             </tbody>
         </table>
     </div>

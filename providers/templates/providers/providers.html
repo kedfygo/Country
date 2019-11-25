@@ -1,12 +1,12 @@
-{% extends 'resident/base.html' %}{%block title%}Residentes{% endblock %} {% block content%}
+{% extends 'resident/base.html' %}{%block title%}Proveedores{% endblock %}{% block content %}
 <main class="pt-4">
     <div class="container">
-        <h2 class="text-center mb-4">Administración de Residentes</h2>
+        <h2 class="text-center mb-4">Administración de Proveedores</h2>
 
         <div class="row text-center panel justify-content-center align-middle">
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="boton bg-success d-flex align-items-center justify-content-center">
-                    <a href="{% url 'add-resident' %}" class="text-light">
+                    <a href="{% url 'add-provider' %}" class="text-light">
                         <i class="material-icons">add</i>
                         <p class="m-0">Nuevo</p>
                     </a>
@@ -15,7 +15,7 @@
         </div>
         <!-- row -->
 
-        <h3 class="text-center mt-4">Lista de Residentes</h3>
+        <h3 class="text-center mt-4">Lista de Proveedores</h3>
 
         <table class="table">
             <caption>Listado Actualizado...</caption>
@@ -23,37 +23,35 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">Razón Social</th>
+                    <th scope="col">RFC</th>
                     <th scope="col">Dirección</th>
-                    <th scope="col">Correo Electrónico</th>
-                    <th scope="col">Tipo de Inmueble</th>
-                    <th scope="col">Nombre del Propietario</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Fecha de Ingreso</th>
 
                 </tr>
             </thead>
             <tbody>
-                {% if residents_listed %} {% for resident in residents_listed %}
+            {% if providers_listed %} {% for provider in providers_listed %}
                 <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ resident.name}}</td>
-                    <td>{{ resident.lastname }}</td>
-                    <td>{{ resident.address}}</td>
-                    <td>{{ resident.email }}</td>
-                    <td>{{ resident.type_of_property}}</td>
-                    <td>{{ resident.owner_name }}</td>
+                    <td>{{ provider.register_id}}</td>
+                    <td>{{ provider.description}}</td>
+                    <td>{{ provider.rfc}}</td>
+                    <td>{{ provider.address}}</td>
+                    <td>{{ provider.category}}</td>
+                    <td>{{ provider.phone}}</td>
+                    <td>{{ provider.email}}</td>
+                    <td>{{ provider.registered}}</td>
                     <td>
                         <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
                         <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
                         <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
                     </td>
                 </tr>
-
-                {% endfor %} {% else %}
-                <p>No hay residentes registrados</p>
-                {% endif %}
-
-
+            {% endfor %}
+            {% endif %}
             </tbody>
         </table>
     </div>

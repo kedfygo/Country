@@ -1,0 +1,55 @@
+{% extends 'resident/base.html' %}{%block title%}Proveedores{% endblock %}{% block content %}
+<main class="pt-4">
+    <div class="container">
+        <h2 class="text-center mb-4">Gastos Administrativos</h2>
+
+        <div class="row text-center panel justify-content-center align-middle">
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="boton bg-success d-flex align-items-center justify-content-center">
+                    <a href="{% url 'add-expense' %}" class="text-light">
+                        <i class="material-icons">add</i>
+                        <p class="m-0">Nuevo</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+
+        <h3 class="text-center mt-4">Lista de Gastos</h3>
+
+        <table class="table">
+            <caption>Listado Actualizado...</caption>
+
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Folio</th>
+                    <th scope="col">Proveedor</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Observaciones</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            {% if expenses_listed %} {% for expense in expenses_listed %}
+                <tr>
+                    <td>{{ expense.date}}</td>
+                    <td>{{ expense.folio}}</td>
+                    <td>{{ expense.provider}}</td>
+                    <td>{{ expense.description}}</td>
+                    <td>{{ expense.notes}}</td>
+                    <td>
+                        <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
+                        <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
+                        <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <!-- container -->
+</main>
+
+{% endblock %}
