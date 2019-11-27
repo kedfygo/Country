@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}{%block title%}Agregar Residente{% endblock %} {% block content %}
+<main class="pt-4">
+    <div class="container">
+        <h2 class="text-center mb-4">Nuevo Residente</h2>
+        <div class="row">
+            <div class="col">
+                <form method="POST" class="needs-validation" novalidate>{% csrf_token %}
+
+                  {{ form.as_p}}
+                  
+                    <button type="submit" class="btn btn-primary" value="Agregar">Agregar Residente</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

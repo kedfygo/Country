@@ -8,7 +8,7 @@ class Payments(models.Model):
     description = models.CharField(max_length=200, verbose_name="Descripción del Pago")
     amount = models.IntegerField(verbose_name="monto del pago")
     type_of_payment = models.CharField(max_length=50, verbose_name="tipo de pago")
-    proof_of_payment = models.ImageField(upload_to='payments')
+    proof_of_payment = models.ImageField(upload_to='payments', verbose_name="Comprobante de Pago")
     date_of_payment = models.DateTimeField(verbose_name="fecha de pago")
 
     class Meta:

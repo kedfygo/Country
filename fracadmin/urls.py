@@ -20,13 +20,17 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('residents/', include('resident.urls')),
+    path('residents/', include('residents.urls')),
     path('expenses/', include('expenses.urls')),
     path('payments/', include('payments.urls')),
     path('providers/', include('providers.urls')),
+    path('' , include('core.urls')),
     path('admin/', admin.site.urls),
 ]
+
 
 if settings.DEBUG:
   from django.conf.urls.static import static
   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
