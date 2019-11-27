@@ -27,25 +27,26 @@
                     <th scope="col">Proveedor</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Observaciones</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
-            {% if expenses_listed %} {% for expense in expenses_listed %}
+                {% if expenses_listed %} {% for expense in expenses_listed %}
                 <tr>
                     <td>{{ expense.date}}</td>
                     <td>{{ expense.folio}}</td>
                     <td>{{ expense.provider}}</td>
                     <td>{{ expense.description}}</td>
                     <td>{{ expense.notes}}</td>
-                    <td>
+                    <!--
+                         <td>
                         <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
                         <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
                         <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
                     </td>
+                    -->
                 </tr>
-            {% endfor %}
-            {% endif %}
+                {% endfor %} {% endif %}
             </tbody>
         </table>
     </div>

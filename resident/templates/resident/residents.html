@@ -26,9 +26,11 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Dirección</th>
+                    <th scope="col">N° Telefónico</th>
                     <th scope="col">Correo Electrónico</th>
                     <th scope="col">Tipo de Inmueble</th>
                     <th scope="col">Nombre del Propietario</th>
+                    <th scope="col">N° Telefónico</th>
 
                 </tr>
             </thead>
@@ -39,11 +41,13 @@
                     <td>{{ resident.name}}</td>
                     <td>{{ resident.lastname }}</td>
                     <td>{{ resident.address}}</td>
+                    <td>{{ resident.phone_number}}</td>
                     <td>{{ resident.email }}</td>
                     <td>{{ resident.type_of_property}}</td>
                     <td>{{ resident.owner_name }}</td>
+                    <td>{{ resident.owner_phone_number }}</td>
                     <td>
-                        <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
+                        <a href="#" class="btn btn-danger"><i class="material-icons">delete</i></a>
                         <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
                         <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
                     </td>
