@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Resident
 from django.template import loader
+from .forms import ResidentForm
 
 # Create your views here.
 def residents_list(request):
@@ -11,4 +12,14 @@ def residents_list(request):
     return render(request, 'resident/residents.html', context)
 
 def add_resident(request):
-    return render(request, 'resident/add-resident.html')
+    if request.method == "POST":
+        form = ResidentForm(request.POST)
+        if form.is_valid():
+          resident = form.save()
+          return redirect('residents')
+    else:
+        form = ResidentForm()
+    context = {
+        'form' : form,
+    }
+    return render(request, 'resident/add-resident.html', context)
