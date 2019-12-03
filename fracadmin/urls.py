@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
-
+from django.conf.urls import url
 
 urlpatterns = [
+    #Paths del autenticador
+    url(r'^accounts/', include('django_registration.backends.activation.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    #Paths de otras apps
     path('residents/', include('residents.urls')),
     path('expenses/', include('expenses.urls')),
     path('payments/', include('payments.urls')),
