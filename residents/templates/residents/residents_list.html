@@ -43,7 +43,7 @@
                         {% if request.user.is_staff %}
 
                         <a data-toggle="tooltip" data-placement="top" title="Eliminar Residente" href="{% url 'residents:delete' resident.id %}" class="btn btn-danger"><i class="material-icons">delete</i></a>
-                        <a data-toggle="tooltip" data-placement="top" title="Editar Residente" href="{% url 'residents:update' resident.id %}" class="btn btn-success"><i class="material-icons">description</i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Editar Residente" href="{% url 'residents:update' resident.id %}" class="btn btn-edit"><i class="material-icons">description</i></a>
                         <a data-toggle="tooltip" data-placement="top" title="Ver Residente" href="{% url 'residents:resident' resident.id %}" class="btn btn-primary"><i class="material-icons">visibility</i></a> {% endif %}
 
                     </td>

@@ -13,7 +13,7 @@
 
 <body>
 
-    <nav class="navbar bd-navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar bd-navbar navbar-expand-lg navbar-dark barra-principal">
         <a href="#" class="navbar-brand">Administración</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navegacion">
@@ -29,33 +29,34 @@
                     </div>
                     <!-- col -->
                     <div class="col-sm-2 text-right">
-                        <a href="#" class="btn btn-success px-5 text-light">Perfil</a>
+                        <a href="#" class="btn btn-profile px-5 text-light">Perfil</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <aside class="bg-dark p-4">
-        <h3 class="text-light text-center">El Country</h3>
+    <aside class="barra-lateral p-4">
+
+        <img class="img-thumbnail" src="{% static 'core/img/logo.png'%}" alt="">
         <ul class="nav flex-column mt-5">
             <li class="nav-item">
-                <a href="{% url 'residents:residents'%}" class="nav-link text-light d-flex align-items-center {% if request.path == '/residents/' %}active{% endif %}">
+                <a href="{% url 'residents:residents'%}" class="nav-link  d-flex align-items-center {% if request.path == '/residents/' %}active{% endif %}">
                     <i class="material-icons mr-2">contacts</i> Residentes
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'payments'%}" class="nav-link text-light d-flex align-items-center {% if request.path == '/payments/' %}active{% endif %}">
+                <a href="{% url 'payments'%}" class="nav-link  d-flex align-items-center {% if request.path == '/payments/' %}active{% endif %}">
                     <i class="material-icons mr-2">attach_money</i> Pagos
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'expenses'%}" class="nav-link text-light d-flex align-items-center {% if request.path == '/expenses/' %}active{% endif %}">
+                <a href="{% url 'expenses'%}" class="nav-link  d-flex align-items-center {% if request.path == '/expenses/' %}active{% endif %}">
                     <i class="material-icons mr-2">dvr</i> Gastos
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'providers'%}" class="nav-link text-light d-flex align-items-center {% if request.path == '/providers/' %}active{% endif %}">
+                <a href="{% url 'providers'%}" class="nav-link  d-flex align-items-center {% if request.path == '/providers/' %}active{% endif %}">
                     <i class="material-icons mr-2">account_box</i> Proveedores
                 </a>
             </li>
