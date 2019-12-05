@@ -7,6 +7,7 @@ class Expenses(models.Model):
     folio = models.CharField(max_length=50, verbose_name="folio")
     provider = models.CharField(max_length=200, verbose_name="proveedor")
     description = models.CharField(max_length=200, verbose_name="descripción")
+    amount = models.DecimalField(decimal_places=2, max_digits=20, verbose_name="monto", blank=False, null=False)
     notes = models.CharField(max_length=300, verbose_name="observaciones adicionales")
 
     class Meta:

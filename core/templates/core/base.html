@@ -46,12 +46,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'payments'%}" class="nav-link  d-flex align-items-center {% if request.path == '/payments/' %}active{% endif %}">
+                <a href="{% url 'payments:payments'%}" class="nav-link  d-flex align-items-center {% if request.path == '/payments/' %}active{% endif %}">
                     <i class="material-icons mr-2">attach_money</i> Pagos
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'expenses'%}" class="nav-link  d-flex align-items-center {% if request.path == '/expenses/' %}active{% endif %}">
+                <a href="{% url 'expenses:expenses'%}" class="nav-link  d-flex align-items-center {% if request.path == '/expenses/' %}active{% endif %}">
                     <i class="material-icons mr-2">dvr</i> Gastos
                 </a>
             </li>

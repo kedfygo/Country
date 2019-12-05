@@ -20,6 +20,8 @@ from django.conf import settings
 from django.conf.urls import url
 from residents.urls import residents_patterns
 from providers.urls import providers_patterns
+from expenses.urls import expensespatterns
+from payments.urls import paymentspatterns
 
 urlpatterns = [
     #Paths del autenticador
@@ -27,8 +29,8 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     #Paths de otras apps
     path('residents/', include(residents_patterns)),
-    path('expenses/', include('expenses.urls')),
-    path('payments/', include('payments.urls')),
+    path('expenses/', include(expensespatterns)),
+    path('payments/', include(paymentspatterns)),
     path('providers/', include(providers_patterns)),
     path('' , include('core.urls')),
     path('admin/', admin.site.urls),

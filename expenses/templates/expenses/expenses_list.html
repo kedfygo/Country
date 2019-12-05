@@ -6,7 +6,7 @@
         <div class="row text-center panel justify-content-center align-middle">
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="boton bg-success d-flex align-items-center justify-content-center">
-                    <a href="{% url 'add-expense' %}" class="text-light">
+                    <a href="{% url 'expenses:create' %}" class="text-light">
                         <i class="material-icons">add</i>
                         <p class="m-0">Nuevo</p>
                     </a>
@@ -23,28 +23,23 @@
             <thead>
                 <tr>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Folio</th>
                     <th scope="col">Proveedor</th>
                     <th scope="col">Descripción</th>
-                    <th scope="col">Observaciones</th>
-
+                    <th scope="col">Monto</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                {% if expenses_listed %} {% for expense in expenses_listed %}
+                {% if expenses_list %} {% for expense in expenses_list %}
                 <tr>
                     <td>{{ expense.date}}</td>
-                    <td>{{ expense.folio}}</td>
                     <td>{{ expense.provider}}</td>
                     <td>{{ expense.description}}</td>
-                    <td>{{ expense.notes}}</td>
-                    <!--
-                         <td>
-                        <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
-                        <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
-                        <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
+                    <td>{{ expense.amount}} MXN</td>
+
+                    <td>
+                        <a data-toggle="tooltip" data-placement="top" title="Detalles de Gasto" href="{% url 'expenses:expense' expense.id %}" class="btn btn-primary"><i class="material-icons">visibility</i></a>
                     </td>
-                    -->
                 </tr>
                 {% endfor %} {% endif %}
             </tbody>

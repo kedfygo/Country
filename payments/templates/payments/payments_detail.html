@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}{%block title%}Pagos{% endblock %} {% block content%}
+
+<main class="pt-4">
+    <div class="container">
+
+        <div class="card">
+            <div class="text-center card-header">
+                <h2>Detalles del Pago</h2>
+            </div>
+            <div class="card-body text-center">
+
+                <p class="card-text">
+                    <p><b>Residente:</b> {{ payments.name }} {{payments.lastname}}</p>
+                    <p><b>Dirección:</b> {{ payments.address }}</p>
+                    <p><b>Descipción del pago:</b> {{ payments.description }}</p>
+                    <p><b>Monto del Pago:</b> {{ payments.amount }} MXN</p>
+                    <p><b>Tipo de Pago:</b> {{ payments.type_of_payment }}</p>
+                    <p><b>Comprobante de Pago:</b><a href="{{ payments.proof_of_payment.url }}"> Ver Comprobante</a></p>
+                    <p><b>Fecha de Pago:</b> {{ payments.date_of_payment }}</p>
+                </p>
+                <a href="{% url 'payments:payments'%}" class="btn btn-danger mt-5">Regresar</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+</main>
+
+{% endblock %}

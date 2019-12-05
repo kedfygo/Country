@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}{%block title%}Gastos{% endblock %} {% block content%}
+
+<main class="pt-4">
+    <div class="container">
+
+        <div class="card">
+            <div class="text-center card-header">
+                <h2>Detalles de Gasto</h2>
+            </div>
+            <div class="card-body text-center">
+
+                <p class="card-text">
+                    <p><b>Fecha:</b> {{ expenses.date }}</p>
+                    <p><b>Folio:</b> {{ expenses.folio }}</p>
+                    <p><b>Proveedor:</b> {{ expenses.provider }}</p>
+                    <p><b>Descripción:</b> {{ expenses.description }}</p>
+                    <p><b>Descripción:</b> {{ expenses.amount }} MXN</p>
+                    <p><b>Observaciones:</b> {{ expenses.notes }}</p>
+                </p>
+                <a href="{% url 'expenses:expenses'%}" class="btn btn-danger mt-5">Regresar</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+</main>
+
+{% endblock %}
