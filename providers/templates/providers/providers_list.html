@@ -6,7 +6,7 @@
         <div class="row text-center panel justify-content-center align-middle">
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="boton bg-success d-flex align-items-center justify-content-center">
-                    <a href="{% url 'add-provider' %}" class="text-light">
+                    <a href="{% url 'providers:create' %}" class="text-light">
                         <i class="material-icons">add</i>
                         <p class="m-0">Nuevo</p>
                     </a>
@@ -22,32 +22,24 @@
 
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+                    
                     <th scope="col">Razón Social</th>
-                    <th scope="col">RFC</th>
                     <th scope="col">Dirección</th>
                     <th scope="col">Categoría</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Fecha de Ingreso</th>
-
+                    
                 </tr>
             </thead>
             <tbody>
-            {% if providers_listed %} {% for provider in providers_listed %}
+            {% if providers_list %} {% for provider in providers_list %}
                 <tr>
-                    <td>{{ provider.register_id}}</td>
                     <td>{{ provider.description}}</td>
-                    <td>{{ provider.rfc}}</td>
                     <td>{{ provider.address}}</td>
                     <td>{{ provider.category}}</td>
-                    <td>{{ provider.phone}}</td>
-                    <td>{{ provider.email}}</td>
-                    <td>{{ provider.registered}}</td>
+                    
                     <td>
-                        <a href="#" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
-                        <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
-                        <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Eliminar Proveedor" href="{% url 'providers:delete' provider.register_id%}" class="btn btn-danger"><i class="material-icons mr-2">delete</i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Editar Proveedor" href="{% url 'providers:update' provider.register_id %}"  class="btn btn-edit"><i class="material-icons">description</i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Detalles de Proveedor" href="{% url 'providers:provider' provider.register_id %}"  class="btn btn-primary"><i class="material-icons">visibility</i></a>
                     </td>
                 </tr>
             {% endfor %}

@@ -1,46 +1,34 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import redirect
 from .models import Providers
 from .forms import ProvidersForm
 
-# Create your views here.
-def providers_list(request): 
-    providers_listed = Providers.objects.all()
-    context = {
-        'providers_listed' : providers_listed,
-    }
-    return render(request, 'providers/providers.html', context)
+from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse, reverse_lazy
 
-def add_provider(request):
-    if request.method == "POST":
-        form = ProvidersForm(request.POST)
-        if form.is_valid():
-          provider = form.save()
-          return redirect('providers')
-    else:
-        form = ProvidersForm()
-    context = {
-        'form' : form,
-    }
-    return render(request, 'providers/add-provider.html', context)
-"""
-def add_provider(request):
-    form = ProvidersForm()
-    context = {
-        'form' : form,
-    }
-    return render(request, 'providers/add-provider.html')
-"""
-"""
-def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
-"""
+# Create your views here.
+class ProvidersListView(ListView):
+    model = Providers
+
+class ProvidersDetailView(DetailView):
+    model = Providers
+
+class ProvidersCreate(CreateView):
+    model = Providers
+    form_class = ProvidersForm
+    success_url = reverse_lazy('providers:providers')
+
+class ProvidersUpdate(UpdateView):
+    model = Providers
+    form_class = ProvidersForm
+    template_name_suffix = "_update_form"
+
+    def get_success_url(self):
+        return reverse_lazy('providers:update', args=[self.object.register_id]) + '?ok' 
+
+class ProvidersDelete(DeleteView):
+    model = Providers
+    success_url = reverse_lazy('providers:providers')    
+

@@ -19,6 +19,7 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls import url
 from residents.urls import residents_patterns
+from providers.urls import providers_patterns
 
 urlpatterns = [
     #Paths del autenticador
@@ -28,7 +29,7 @@ urlpatterns = [
     path('residents/', include(residents_patterns)),
     path('expenses/', include('expenses.urls')),
     path('payments/', include('payments.urls')),
-    path('providers/', include('providers.urls')),
+    path('providers/', include(providers_patterns)),
     path('' , include('core.urls')),
     path('admin/', admin.site.urls),
 ]

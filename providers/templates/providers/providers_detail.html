@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}{%block title%}Proveedores{% endblock %} {% block content%}
+
+<main class="pt-4">
+    <div class="container">
+
+        <div class="card">
+            <div class="text-center card-header">
+                <h2>Información del Proveedor</h2>
+            </div>
+            <div class="card-body text-center">
+
+                <p class="card-text">
+                    <p><b>Razón Social:</b> {{ providers.description }}</p>
+                    <p><b>RFC:</b> {{ providers.rfc }}</p>
+                    <p><b>Dirección:</b> {{ providers.address }}</p>
+                    <p><b>Categoría:</b> {{ providers.category }}</p>
+                    <p><b>Número Telefónico:</b> {{ providers.phone }}</p>
+                    <p><b>Email:</b> {{ providers.email }}</p>
+                    <p><b>Fecha de Ingreso:</b> {{ providers.registered }}</p>
+                
+                </p>
+                <a href="{% url 'providers:providers'%}" class="btn btn-danger mt-5">Regresar</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+</main>
+
+{% endblock %}
