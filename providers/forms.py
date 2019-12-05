@@ -8,15 +8,7 @@ class ProvidersForm(forms.ModelForm):
     class Meta:
         model = Providers
         fields = ('description', 'rfc', 'address', 'category', 'phone', 'email')
-        """help_texts = {
-            'description': _('Razón Social'),
-            'rfc': _('RFC del Proveedor'),
-            'address': _('Calle y Número del Local'),
-            'category': _('Producto o Servicio / Ramo'),
-            'phone': _('Número de Teléfono'),
-            'email': _('Dirección de correo electrónico'),     
-        }
-        """
+        
         widgets = {
             'description': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Razón Social'}),
             'rfc': TextInput(attrs={'class': 'form-control', 'placeholder' : 'RFC del Proveedor'}),

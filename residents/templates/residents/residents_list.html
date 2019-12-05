@@ -6,7 +6,7 @@
         <div class="row text-center panel justify-content-center align-middle">
             <div class="col-lg-3 col-md-6 col-12">
                 <div class="boton bg-success d-flex align-items-center justify-content-center">
-                    <a href="{% url 'add-resident' %}" class="text-light">
+                    <a href="{% url 'residents:create' %}" class="text-light">
                         <i class="material-icons">add</i>
                         <p class="m-0">Nuevo</p>
                     </a>
@@ -23,33 +23,29 @@
             <thead>
                 <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
                     <th scope="col">Dirección</th>
-                    <th scope="col">N° Telefónico</th>
-                    <th scope="col">Correo Electrónico</th>
-                    <th scope="col">Tipo de Inmueble</th>
                     <th scope="col">Nombre del Propietario</th>
-                    <th scope="col">N° Telefónico</th>
 
                 </tr>
+
             </thead>
             <tbody>
-                {% if residents_listed %} {% for resident in residents_listed %}
+                {% if residents_list %} {% for resident in residents_list %}
                 <tr>
-                    <td>{{ forloop.counter }}</td>
+                    <td>{{ resident.id }}</td>
                     <td>{{ resident.name}}</td>
                     <td>{{ resident.lastname }}</td>
                     <td>{{ resident.address}}</td>
-                    <td>{{ resident.phone_number}}</td>
-                    <td>{{ resident.email }}</td>
-                    <td>{{ resident.type_of_property}}</td>
                     <td>{{ resident.owner_name }}</td>
-                    <td>{{ resident.owner_phone_number }}</td>
                     <td>
-                        <a href="#" class="btn btn-danger"><i class="material-icons">delete</i></a>
-                        <a href="#" class="btn btn-success"><i class="material-icons">description</i></a>
-                        <a href="#" class="btn btn-primary"><i class="material-icons">visibility</i></a>
+                        {% if request.user.is_staff %}
+
+                        <a data-toggle="tooltip" data-placement="top" title="Eliminar Residente" href="{% url 'residents:delete' resident.id %}" class="btn btn-danger"><i class="material-icons">delete</i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Editar Residente" href="{% url 'residents:update' resident.id %}" class="btn btn-success"><i class="material-icons">description</i></a>
+                        <a data-toggle="tooltip" data-placement="top" title="Ver Residente" href="{% url 'residents:resident' resident.id %}" class="btn btn-primary"><i class="material-icons">visibility</i></a> {% endif %}
+
                     </td>
                 </tr>
 

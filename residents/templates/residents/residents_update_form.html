@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}{%block title%}Agregar Residente{% endblock %} {% block content %}
+<main class="pt-4">
+    <div class="container">
+        <h2 class="text-center mb-4">Editar datos de Residente</h2>
+        <hr>
+        <div class="row">
+            <div class="col">
+                {% if 'ok' in request.GET %}
+                <p class="alert alert-success"><em>Los cambios se han guardado satisfactoriamente</em> </p>
+                <a class="btn btn-danger mb-3 " href="{% url 'residents:residents' %}">Regresar</a> {% endif %}
+                <form method="POST" class="needs-validation" novalidate>{% csrf_token %} {{ form.as_p}}
+
+                    <button type="submit" class="mb-5 btn btn-primary" value="Agregar">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}{%block title%}Residentes{% endblock %} {% block content%}
+
+<main class="pt-4">
+    <div class="container">
+
+        <div class="card">
+            <div class="text-center card-header">
+                <h2>Información del Residente</h2>
+            </div>
+            <div class="card-body text-center">
+
+                <p class="card-text">
+                    <p><b>Nombres:</b> {{ residents.name}}</p>
+                    <p><b>Apellidos:</b> {{ residents.lastname}}</p>
+                    <p><b>Dirección:</b> {{ residents.address}}</p>
+                    <p><b>Número Telefónico:</b> {{ residents.phone_number }}</p>
+                    <p><b>Correo Electrónico:</b> {{ residents.email }}</p>
+                    <p><b>Tipo de Inmueble:</b> Tipo de Inmueble: {{ residents.type_of_property}}</p>
+                    <p><b>Nombre del Propietario:</b> {{ residents.owner_name }}</p>
+                    <p><b>Número Telefónico:</b> {{ residents.owner_phone_number }}</p>
+                </p>
+                <a href="{% url 'residents:residents'%}" class="btn btn-danger mt-5">Regresar</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- container -->
+</main>
+
+{% endblock %}
