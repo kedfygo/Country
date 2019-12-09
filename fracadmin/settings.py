@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'providers.apps.ProvidersConfig',
     'payments.apps.PaymentsConfig',
     'expenses.apps.ExpensesConfig',
+    #Formato de Números
+    'django.contrib.humanize',
     'core'
 ]
 
@@ -112,11 +114,17 @@ LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+#USE_I18N = True
 
-USE_L10N = True
+#USE_L10N = True
 
 USE_TZ = True
+
+USE_THOUSAND_SEPARATOR = True
+
+#DECIMAL_SEPARATOR = '.'
+
+#THOUSAND_SEPARATOR = ','
 
 
 # Static files (CSS, JavaScript, Images)

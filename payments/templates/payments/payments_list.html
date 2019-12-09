@@ -27,8 +27,6 @@
                     <th scope="col">Dirección</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Monto</th>
-                    <th scope="col">Tipo de Pago</th>
-                    <th scope="col">Comprobante</th>
                     <th scope="col">Fecha de Pago</th>
                     <th></th>
 
@@ -36,15 +34,14 @@
                 </tr>
             </thead>
             <tbody>
-                {% if payments_list %} {% for payment in payments_list %}
+                {% load humanize %} {% if payments_list %} {% for payment in payments_list %}
                 <tr>
                     <td>{{ payment.name}}</td>
                     <td>{{ payment.lastname}}</td>
                     <td>{{ payment.address}}</td>
                     <td>{{ payment.description}}</td>
-                    <td>{{ payment.amount}}</td>
-                    <td>{{ payment.type_of_payment}}</td>
-                    <td><a href="{{ payment.proof_of_payment.url }}" class="">Ver recibo</a></td>
+
+                    <td>{{ payment.amount|intcomma}} MXN</td>
                     <td> {{ payment.date_of_payment }}</td>
                     <td>
                         <a data-toggle="tooltip" data-placement="top" title="Detalles del Pago" href="{% url 'payments:payment' payment.id %}" class="btn btn-primary"><i class="material-icons">visibility</i></a>

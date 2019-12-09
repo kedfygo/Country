@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %}{%block title%}Gastos{% endblock %} {% block content%}
+{% extends 'core/base.html' %}{%block title%}Gastos{% endblock %} {% block content%}{% load humanize %}
 
 <main class="pt-4">
     <div class="container">
@@ -14,7 +14,7 @@
                     <p><b>Folio:</b> {{ expenses.folio }}</p>
                     <p><b>Proveedor:</b> {{ expenses.provider }}</p>
                     <p><b>Descripción:</b> {{ expenses.description }}</p>
-                    <p><b>Descripción:</b> {{ expenses.amount }} MXN</p>
+                    <p><b>Monto:</b> {{ expenses.amount|intcomma }} MXN</p>
                     <p><b>Observaciones:</b> {{ expenses.notes }}</p>
                 </p>
                 <a href="{% url 'expenses:expenses'%}" class="btn btn-danger mt-5">Regresar</a>

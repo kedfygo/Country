@@ -1,7 +1,7 @@
 from django import forms
 from .models import Payments
 from django.utils.translation import gettext_lazy as _
-from django.forms import ModelForm, Textarea, TextInput
+from django.forms import ModelForm, Textarea, TextInput, NumberInput
 
 class PaymentsForm(forms.ModelForm):
     
@@ -14,11 +14,12 @@ class PaymentsForm(forms.ModelForm):
             'lastname': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Apellido del Residente'}),
             'address': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Calle y Número de Casa'}),
             'description': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Descripción del Pago'}),
-            'amount': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Monto del pago'}),
+             #'amount': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Monto del pago'}),
+            'amount': NumberInput(attrs={'class': 'form-control', 'placeholder' : 'Monto del Pago', 'localization': True}),
             'type_of_payment': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Tipo de pago'}),
             'proof_of_payment': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Comprobante de Pago'}),
             'date_of_payment': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Fecha de pago'}),
         }
-
+        
 
 

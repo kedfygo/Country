@@ -14,7 +14,7 @@ class ExpensesForm(forms.ModelForm):
             'folio': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Número de Folio'}),
             'provider': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Nombre del Proveedor'}),
             'description': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Descripción'}),
-            'amount': NumberInput(attrs={'class': 'form-control', 'placeholder' : 'Monto del Gasto'}),
+            'amount': NumberInput(attrs={'class': 'form-control', 'placeholder' : 'Monto del Gasto', 'localization':True}),
             'notes': TextInput(attrs={'class': 'form-control', 'placeholder' : 'Observaciones Adicionales'}),
         }
 

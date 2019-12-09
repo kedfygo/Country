@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %}{%block title%}Pagos{% endblock %} {% block content%}
+{% extends 'core/base.html' %}{%block title%}Pagos{% endblock %} {% block content%}{% load humanize %}
 
 <main class="pt-4">
     <div class="container">
@@ -13,7 +13,7 @@
                     <p><b>Residente:</b> {{ payments.name }} {{payments.lastname}}</p>
                     <p><b>Dirección:</b> {{ payments.address }}</p>
                     <p><b>Descipción del pago:</b> {{ payments.description }}</p>
-                    <p><b>Monto del Pago:</b> {{ payments.amount }} MXN</p>
+                    <p><b>Monto del Pago:</b> {{ payments.amount|intcomma }} MXN</p>
                     <p><b>Tipo de Pago:</b> {{ payments.type_of_payment }}</p>
                     <p><b>Comprobante de Pago:</b><a href="{{ payments.proof_of_payment.url }}"> Ver Comprobante</a></p>
                     <p><b>Fecha de Pago:</b> {{ payments.date_of_payment }}</p>
