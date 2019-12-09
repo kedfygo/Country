@@ -5,8 +5,8 @@
         <h2 class="text-center mb-4">Registrar Pago</h2>
         <div class="row">
             <div class="col">
-                <form method="POST" class="needs-validation" novalidate> {% csrf_token %}{{ form.as_p }}
-                    
+                <form enctype="multipart/form-data" method="POST" class="needs-validation" novalidate> {% csrf_token %}{{ form.as_p }}
+
                     <button type="submit" class="btn btn-primary" value="Agregar">Registrar Pago</button>
                 </form>
             </div>
