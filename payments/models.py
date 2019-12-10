@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+def custom_upload_to(instance, filename):
+    return f'payments/{ instance.name }_{ instance.lastname }/' + filename
+
 class Payments(models.Model):
     name = models.CharField(max_length=50, verbose_name="nombre")
     lastname = models.CharField(max_length=50, verbose_name="apellido")
@@ -9,7 +12,7 @@ class Payments(models.Model):
     #amount = models.IntegerField(verbose_name="monto del pago")
     amount = models.DecimalField(decimal_places=2, max_digits=20, verbose_name="monto", blank=False, null=False, )
     type_of_payment = models.CharField(max_length=50, verbose_name="tipo de pago")
-    proof_of_payment = models.ImageField(upload_to='payments/', verbose_name="Comprobante de Pago",)
+    proof_of_payment = models.ImageField(upload_to=custom_upload_to, verbose_name="Comprobante de Pago",)
     date_of_payment = models.DateTimeField( verbose_name="fecha de pago")
 
     class Meta:

@@ -15,6 +15,12 @@
         </div>
         <!-- row -->
 
+        <div class="col mt-5">
+            <form action="#" class="my-2 my-lg-0">
+                <input class="form-control" type="search" placeholder="Buscar residente por nombre...">
+            </form>
+        </div>
+
         <h3 class="text-center mt-4">Lista de Residentes</h3>
 
         <table class="table">
@@ -22,7 +28,7 @@
 
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
+
                     <th scope="col">Nombres</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Dirección</th>
@@ -35,7 +41,7 @@
             <tbody>
                 {% if residents_list %} {% for resident in residents_list %}
                 <tr>
-                    <td>{{ resident.id }}</td>
+
                     <td>{{ resident.name}}</td>
                     <td>{{ resident.lastname }}</td>
                     <td>{{ resident.address}}</td>
